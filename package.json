@@ -1,7 +1,7 @@
 {
-  "name": "css-variable-autocomplete",
-  "displayName": "CSS Variable Autocomplete",
-  "description": "Autocomplete and live preview for CSS custom properties",
+  "name": "css-variables-intellisense",
+  "displayName": "CSS Variables Intellisense",
+  "description": "Autocomplete and live preview for CSS custom properties in VSCode",
   "version": "1.0.0",
   "license": "MIT",
   "author": {
