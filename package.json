@@ -1,0 +1,127 @@
+{
+  "name": "css-variable-autocomplete",
+  "displayName": "CSS Variable Autocomplete",
+  "description": "Autocomplete and live preview for CSS custom properties",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Jeroen Schipper"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jerschipper/css-variables-autocomplete-vscode"
+  },
+  "homepage": "https://github.com/jerschipper/css-variables-autocomplete-vscode",
+  "bugs": {
+    "url": "https://github.com/jerschipper/css-variables-autocomplete-vscode/issues"
+  },
+  "icon": "icon.png",
+  "keywords": [
+    "css",
+    "custom-properties",
+    "variables",
+    "autocomplete",
+    "tokens",
+    "intellisense",
+    "scss",
+    "less",
+    "vscode"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "publisher": "JeroenSchipper",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "activationEvents": [
+    "onLanguage:css",
+    "onLanguage:scss",
+    "onLanguage:less",
+    "onLanguage:html"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "CSS Variable Autocomplete",
+      "properties": {
+        "cssVariables.preview.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable live preview dialog when selecting a CSS variable."
+        },
+        "cssVariables.scopes.include": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "**/*.css",
+            "**/*.scss",
+            "**/*.less",
+            "./node_modules/**/**/**/*.css",
+            "./node_modules/**/**/**/*.scss",
+            "./node_modules/**/**/**/*.less"
+          ],
+          "description": "Glob patterns of files to scan for CSS custom properties."
+        },
+        "cssVariables.scopes.exclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "node_modules/**",
+            ".git/**"
+          ],
+          "description": "Glob patterns to ignore during variable extraction."
+        },
+        "cssVariables.triggerPrefix": {
+          "type": "string",
+          "default": "var(--",
+          "description": "Text that triggers the autocomplete dialog."
+        },
+        "cssVariables.decorations.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show an inline color swatch next to var(--token) usages."
+        },
+        "cssVariables.diagnostics.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn about var(--token) usages that do not match any known declaration."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "cssVariables.showPreview",
+        "title": "Show CSS Variable Preview",
+        "icon": "$(eye)"
+      },
+      {
+        "command": "cssVariables.insertToken",
+        "title": "CSS Variables: Insert Token"
+      },
+      {
+        "command": "cssVariables.showDashboard",
+        "title": "CSS Variables: Show Token Dashboard"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "tsc -p ./ --noEmit",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "test": "npm run compile && node --test out/*.test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.9.2",
+    "typescript": "^5.3.0"
+  }
+}

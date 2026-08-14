@@ -1,0 +1,6 @@
+node_modules/
+out/
+*.vsix
+.aider.chat.history.md
+.aider.input.history
+.DS_Store

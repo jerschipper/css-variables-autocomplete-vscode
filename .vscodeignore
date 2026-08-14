@@ -1,0 +1,14 @@
+.git/**
+.github/**
+.vscode/**
+.vscode-test/**
+.aider.chat.history.md
+.aider.input.history
+.gitignore
+node_modules/**
+src/**
+tsconfig.json
+out/**/*.test.js
+out/**/*.test.js.map
+out/**/*.js.map
+*.vsix
